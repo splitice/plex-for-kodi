@@ -78,6 +78,7 @@ class ServerDecision(object):
         # Server has provided a valid decision if there was a valid decision code
         # or if the response returned zero items (could not play).
         return self.isSupported and (self.decisionsCodes["mdeDecision"] > -1 or requireItem and not self.item)
+        return self.isSupported and not (self.decisionsCodes["mdeDecision"] == -1 or not self.item)
 
     def isTimelineDecision(self):
         return self.isSupported and self.item
