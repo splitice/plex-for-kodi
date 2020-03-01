@@ -425,10 +425,7 @@ class PlexPlayer(object):
         obj.isTranscoded = True
 
         # if server.supportsFeature("mkvTranscode") and self.item.settings.getPreference("transcode_format", 'mkv') != "hls":
-        if server.supportsFeature("mkvTranscode"):
-            builder = self.buildTranscodeMkv(obj)
-        else:
-            builder = self.buildTranscodeHls(obj)
+        builder = self.buildTranscodeHls(obj)
 
         if self.item.getServer().TYPE == 'MYPLEXSERVER':
             path = server.swizzleUrl(self.item.getAbsolutePath("key"))
