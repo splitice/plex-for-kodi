@@ -65,7 +65,7 @@ class PlexPlayer(object):
 
         videoRes = self.media.getVideoResolution()
         obj.fullHD = videoRes >= 1080
-        obj.streamQualities = (videoRes >= 480 and self.item.settings.getGlobal("IsHD")) and ["HD"] or ["SD"]
+        obj.streamQualities = (videoRes >= 480) and ["HD"] or ["SD"]
 
         frameRate = self.media.videoFrameRate or "24p"
         if frameRate == "24p":
